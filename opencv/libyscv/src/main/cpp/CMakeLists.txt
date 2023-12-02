@@ -1,0 +1,30 @@
+cmake_minimum_required(VERSION 3.0)
+set(_id yscv)
+set(ANDROID_PLATFORM android-24)
+project(${_id})
+
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include/)
+add_library(${_id}
+        SHARED
+        cv.cpp
+        )
+
+set(YSCV_LIB ${CMAKE_CURRENT_SOURCE_DIR}/../../../libs/cvLibs/${ANDROID_ABI})
+message("File dir:${YSCV_LIB}/libc++_shared.so")
+target_link_libraries(${_id} PUBLIC ${YSCV_LIB}/libc++_shared.so)
+target_link_libraries(${_id} PUBLIC ${YSCV_LIB}/libopencv_core.so)
+target_link_libraries(${_id} PUBLIC ${YSCV_LIB}/libopencv_flann.so)
+target_link_libraries(${_id} PUBLIC ${YSCV_LIB}/libopencv_imgproc.so)
+target_link_libraries(${_id} PUBLIC ${YSCV_LIB}/libopencv_ml.so)
+target_link_libraries(${_id} PUBLIC ${YSCV_LIB}/libopencv_objdetect.so)
+target_link_libraries(${_id} PUBLIC ${YSCV_LIB}/libopencv_calib3d.so)
+target_link_libraries(${_id} PUBLIC ${YSCV_LIB}/libopencv_features2d.so)
+target_link_libraries(${_id} PUBLIC ${YSCV_LIB}/libopencv_highgui.so)
+target_link_libraries(${_id} PUBLIC ${YSCV_LIB}/libopencv_nonfree.so)
+target_link_libraries(${_id} PUBLIC ${YSCV_LIB}/libopencv_info.so)
+target_link_libraries(${_id} PUBLIC ${YSCV_LIB}/libopencv_legacy.so)
+target_link_libraries(${_id} PUBLIC ${YSCV_LIB}/libopencv_gpu.so)
+target_link_libraries(${_id} PUBLIC ${YSCV_LIB}/libopencv_ocl.so)
+target_link_libraries(${_id} PUBLIC ${YSCV_LIB}/libopencv_photo.so)
+target_link_libraries(${_id} PUBLIC ${YSCV_LIB}/libopencv_video.so)
+target_link_libraries(${_id} PUBLIC ${YSCV_LIB}/libopencv_videostab.so)
